@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/left_menu_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/left_menu_bg" >
+    
+    <ListView
+        android:id="@+id/left_listview"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:divider="@null"
+        android:layout_gravity="center"
+        android:scrollbars="none" >
+    </ListView>
+
+</FrameLayout>

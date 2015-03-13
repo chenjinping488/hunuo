@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@null" >
+    
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="55dp"
+        android:orientation="vertical"
+        android:background="#f9f9f9">
+    
+	    <LinearLayout
+	        android:background="@null"
+	        android:layout_width="fill_parent"
+	        android:layout_height="32dp"
+	        android:layout_marginTop="12dp"
+	        android:gravity="center"
+	        android:orientation="horizontal">
+	        
+	        <Button
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            android:layout_weight="1"
+	            android:visibility="invisible"
+	            android:background="@drawable/kind_bg_1_1"/>
+	        
+	        <Button
+	            android:id="@+id/tool_kind_1"
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            android:layout_weight="1"
+	            android:text="按分类"
+	            android:textColor="#ffffff"
+	            android:textSize="16sp"
+	            android:background="@drawable/kind_bg_1_2"/>
+	        
+	        <Button 
+	            android:id="@+id/tool_kind_2"
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            android:layout_weight="1"
+	            android:text="按行业"
+	            android:textColor="#8e8e8e"
+	            android:textSize="16sp"
+	            android:background="@drawable/kind_bg_2_1"/>
+	        
+	        <Button
+	            android:layout_width="wrap_content"
+	            android:layout_height="fill_parent"
+	            android:layout_weight="1"
+	            android:visibility="invisible"
+	            android:background="@drawable/kind_bg_1_1"/>
+	        
+	    </LinearLayout>
+    
+    </LinearLayout>
+    
+    <LinearLayout
+	        android:layout_width="fill_parent"
+	        android:layout_height="0.1dp"
+	        android:orientation="vertical"
+	        android:background="#dadada"/>
+
+</LinearLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- app顶部颜色 -->
+    <color name="top">#59B610</color>
+
+    <!-- 白色 -->
+    <color name="white">#FFFFFF</color>
+    
+    <!-- 蓝色 -->
+    <color name="blue">#4d9ddc</color>
+
+    <!-- app背景颜色 -->
+    <color name="backbg">#F5F5F5</color>
+
+    <!-- app字体颜色 -->
+    <color name="textColor">#666666</color>
+
+    <!-- 红色 -->
+    <color name="red">#740019</color>
+
+    <!-- 粉红色 -->
+    <color name="pink">#F7F0E4</color>
+
+    <!-- 退出登录按钮颜色 -->
+    <color name="exit_1">#EE6246</color>
+    <color name="exit_2">#F5502E</color>
+
+    <!-- CCC -->
+    <color name="share_press">#cccccc</color>
+</resources>

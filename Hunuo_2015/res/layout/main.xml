@@ -1,0 +1,136 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#f9f9f9"
+    tools:context=".MainActivity" >
+
+    <TabHost
+        android:id="@android:id/tabhost"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical" >
+            
+            <FrameLayout
+                android:id="@android:id/tabcontent"
+                android:layout_width="fill_parent"
+                android:layout_height="0.0dip"
+                android:layout_weight="1.0" />
+
+            <TabWidget
+                android:id="@android:id/tabs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone" >
+            </TabWidget>
+
+            <FrameLayout
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content" >
+                
+                <View
+		            android:layout_width="match_parent"
+		            android:layout_height="0.1dp"
+		            android:layout_gravity="top"
+		            android:background="#c5c5c5" />
+
+             	<RadioGroup
+                    android:id="@+id/main_tab_group"
+                    android:layout_width="fill_parent"
+                    android:layout_height="55dp"
+                    android:layout_gravity="bottom"
+                    android:gravity="bottom"
+                    android:orientation="horizontal" >
+                    
+             	    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:layout_weight="1.0"
+                        android:gravity="center" >
+
+                        <ImageView
+                            android:id="@+id/guide_home"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/menu_1" />
+                        
+                    </LinearLayout>
+                    
+             	    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:layout_weight="1.0"
+                        android:gravity="center" >
+
+                        <ImageView
+                            android:id="@+id/guide_about"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/menu_2" />
+                        
+                    </LinearLayout>
+                    
+             	    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:layout_weight="1.0"
+                        android:gravity="center" >
+
+                        <ImageView
+                            android:id="@+id/guide_case"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/menu_3" />
+                        
+                    </LinearLayout>
+                    
+             	    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:layout_weight="1.0"
+                        android:gravity="center" >
+
+                        <ImageView
+                            android:id="@+id/guide_product"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/menu_4" />
+                        
+                    </LinearLayout>
+                    
+             	    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="5dp"
+                        android:layout_weight="1.0"
+                        android:gravity="center" >
+
+                        <ImageView
+                            android:id="@+id/guide_contact"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:adjustViewBounds="true"
+                            android:src="@drawable/menu_5" />
+                        
+                    </LinearLayout>
+             	    
+             	</RadioGroup>
+                
+            </FrameLayout>
+            
+        </LinearLayout>
+    </TabHost>
+
+</RelativeLayout>
