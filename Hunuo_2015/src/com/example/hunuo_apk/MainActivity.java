@@ -27,7 +27,7 @@ public class MainActivity extends SlidingFragmentActivity {
 	public MenuFragment menuFra = null;
 	LocalActivityManager lam;
 
-	// µ×²¿²Ëµ¥À¸°´Å¥
+	// ï¿½×²ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½Å¥
 	private ImageView guide_home, guide_about, guide_case, guide_product, guide_contact;
 
 	SharedPreferences preferences;
@@ -36,11 +36,10 @@ public class MainActivity extends SlidingFragmentActivity {
 	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.main);
-		setBehindContentView(R.layout.left_menu); // ÉèÖÃ²Ëµ¥
+		setBehindContentView(R.layout.left_menu); // ï¿½ï¿½ï¿½Ã²Ëµï¿½
 		init(savedInstanceState);
 
-		//Intent intent = new Intent(this, AppUpgradeService.class);
-		//startService(intent);
+		System.out.println("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa");
 	}
 
 	private void init(Bundle savedInstanceState) {
@@ -49,12 +48,12 @@ public class MainActivity extends SlidingFragmentActivity {
 		fraTra.replace(R.id.left_menu_layout, menuFra);
 		fraTra.commit();
 
-		SlidingMenu sm = getSlidingMenu(); // »¬¶¯²Ëµ¥
-		sm.setShadowWidth(15); // ÒõÓ°¿í¶È
-		sm.setBehindOffset(100); // ²Ëµ¥Óë±ß¿òµÄ¾àÀë
-		sm.setShadowDrawable(R.drawable.shadow); // »¬¶¯²Ëµ¥½¥±ä
-		sm.setFadeDegree(0.35f); // É«¶È
-		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN); // ±ßÔµ»¬¶¯²Ëµ¥
+		SlidingMenu sm = getSlidingMenu(); // ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½
+		sm.setShadowWidth(15); // ï¿½ï¿½Ó°ï¿½ï¿½ï¿½
+		sm.setBehindOffset(100); // ï¿½Ëµï¿½ï¿½ï¿½ß¿ï¿½Ä¾ï¿½ï¿½ï¿½
+		sm.setShadowDrawable(R.drawable.shadow); // ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½
+		sm.setFadeDegree(0.35f); // É«ï¿½ï¿½
+		sm.setTouchModeAbove(SlidingMenu.TOUCHMODE_MARGIN); // ï¿½ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½
 
 		tabHost = (TabHost) findViewById(android.R.id.tabhost);
 
@@ -132,7 +131,7 @@ public class MainActivity extends SlidingFragmentActivity {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			if ((System.currentTimeMillis() - mExitTime) > 2000) {
 				// Object mHelperUtils;
-				Toast.makeText(this, "ÔÙ°´Ò»´ÎÍË³ö³ÌÐò", Toast.LENGTH_SHORT).show();
+				Toast.makeText(this, "ï¿½Ù°ï¿½Ò»ï¿½ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½ï¿½", Toast.LENGTH_SHORT).show();
 				mExitTime = System.currentTimeMillis();
 			} else {
 				Intent exit = new Intent(Intent.ACTION_MAIN);
@@ -145,7 +144,7 @@ public class MainActivity extends SlidingFragmentActivity {
 			}
 			return true;
 		}
-		// ¼ÌÐøÖ´ÐÐ¸¸ÀàµÄÆäËûµã»÷ÊÂ¼þ
+		// ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ð¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½
 		return super.onKeyDown(keyCode, event);
 	}
 
@@ -194,7 +193,7 @@ public class MainActivity extends SlidingFragmentActivity {
 
 	@Override
 	protected void onResume() {
-		// Â©µôß@ÐÐÒ»¶¨³öåe
+		// Â©ï¿½ï¿½ï¿½@ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½e
 		lam.dispatchResume();
 		super.onResume();
 	}
