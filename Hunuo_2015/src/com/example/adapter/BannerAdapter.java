@@ -4,25 +4,23 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.graphics.Bitmap;
 import android.os.Parcelable;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
-
+import com.example.application.UILApplication;
 import com.example.entity.Banner;
 import com.example.hunuo_apk.R;
-import com.nostra13.universalimageloader.core.DisplayImageOptions;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 public class BannerAdapter extends PagerAdapter {
 	private View rowView;
 	private Context context;
+	@SuppressLint("UseSparseArrays")
 	private Map<Integer, View> rowViews = new HashMap<Integer, View>();
 
 	List<Banner> list = new ArrayList<Banner>();
@@ -61,14 +59,10 @@ public class BannerAdapter extends PagerAdapter {
 		} else {
 			holder = (BannerHolder) rowView.getTag();
 		}
-		holder.getImageView().setImageResource(list.get(arg1).getPic());
-		// imageLoader.displayImage(list.get(arg1).getPic(),
-		// holder.getImageView(), options);
-
+		imageLoader.displayImage(list.get(arg1).getPic(), holder.getImageView(), UILApplication.options);
 		rowViews.put(arg1, rowView);
 		((ViewPager) arg0).addView(rowView, 0);
 
-		// holder.imageview.setOnClickListener(new PagerClickListener());
 		return rowView;
 	}
 

@@ -70,7 +70,6 @@ public class HomeActivity extends BaseActivity implements OnFooterRefreshListene
 	BannerAdapter adapter;
 	int currentItem = 0;
 	ImageView[] images;
-	List<Banner> list = new ArrayList<Banner>();
 	int[] list_image = { R.drawable.home_banner_image_1, R.drawable.home_banner_image_1, R.drawable.home_banner_image_1 };
 
 	@Override
@@ -101,21 +100,20 @@ public class HomeActivity extends BaseActivity implements OnFooterRefreshListene
 		System.out.println(t.toString());
 		try {
 			List<Banner> banners = ParserUtils.parserBanner(t.toString());
-
+			initBanner(banners);
 		} catch (Exception e) {
 			// TODO: handle exception
 			e.printStackTrace();
 		}
 	}
 
-	private void initBanner() {
+	private void initBanner(List<Banner> mList) {
 		for (int i = 0; i < list_image.length; i++) {
 			Banner banner = new Banner();
-			banner.setPic(list_image[i]);
-			list.add(i, banner);
+			mList.add(i, banner);
 		}
 
-		int num = list.size();
+		int num = mList.size();
 		images = new ImageView[num];
 		for (int i = 0; i < num; i++) {
 			images[i] = new ImageView(this);
@@ -129,8 +127,7 @@ public class HomeActivity extends BaseActivity implements OnFooterRefreshListene
 			}
 			viewgroup.addView(images[i]);
 		}
-		adapter = new BannerAdapter(HomeActivity.this, list);
-
+		adapter = new BannerAdapter(HomeActivity.this, mList);
 		viewpager.setOnPageChangeListener(new pagerListener());
 		viewpager.setAdapter(adapter);
 		scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();

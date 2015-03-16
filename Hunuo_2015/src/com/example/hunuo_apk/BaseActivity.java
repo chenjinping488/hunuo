@@ -12,7 +12,6 @@ import android.widget.Toast;
 
 import com.example.application.ActivityManager;
 import com.example.http.HttpResponseImp;
-import com.example.utils.NetWorkHelper;
 import com.example.widget.LoadingDialog;
 
 public class BaseActivity extends FinalActivity implements HttpResponseImp {
@@ -142,7 +141,9 @@ public class BaseActivity extends FinalActivity implements HttpResponseImp {
 	@Override
 	public void onHttpSuccess(Object t, int flag) {
 		// TODO Auto-generated method stub
-
+		if (flag != -1) {
+			dialog.dismiss();
+		}
 	}
 
 	@Override
@@ -154,6 +155,8 @@ public class BaseActivity extends FinalActivity implements HttpResponseImp {
 	@Override
 	public void onHttpFailure(Throwable t, int errorNo, String strMsg, int flag) {
 		// TODO Auto-generated method stub
-
+		if (flag != -1) {
+			dialog.dismiss();
+		}
 	}
 }

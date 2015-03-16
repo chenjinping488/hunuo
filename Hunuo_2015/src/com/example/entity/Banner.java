@@ -2,23 +2,13 @@ package com.example.entity;
 
 public class Banner {
 
-	private String code;
-	private int pic;
+	private String pic;
 
-	public String getCode() {
-		return code;
-	}
-
-	public void setCode(String code) {
-		this.code = code;
-	}
-
-	public int getPic() {
+	public String getPic() {
 		return pic;
 	}
 
-	public void setPic(int pic) {
+	public void setPic(String pic) {
 		this.pic = pic;
 	}
-
 }

@@ -7,19 +7,18 @@ import com.example.entity.Left;
 public class Constants {
 
 	/******************* URL *********************/
-	public static String HOST_URL = "http://www.newivf.org/";
 	// public static String APP_URL = "http://hunuoapp.gz1.hostadm.net/";
-	public static String APP_URL = "http://192.168.0.132:8002/";
+	public static String APP_URL = "http://192.168.0.132:8004/";
 
-	public final static String BANNER_URL = HOST_URL + "index.aspx";
+	public final static String BANNER_URL = APP_URL + "index.aspx";
 
-	public final static String Top_URL = HOST_URL + "/app/GetTopmenu.aspx";
+	public final static String Top_URL = APP_URL + "/app/GetTopmenu.aspx";
 
-	public final static String VIDEO_URL = HOST_URL + "/app/GetVideo.aspx";
+	public final static String VIDEO_URL = APP_URL + "/app/GetVideo.aspx";
 
-	public final static String REGISTER_URL = HOST_URL + "/app/GetRegister.aspx";
+	public final static String REGISTER_URL = APP_URL + "/app/GetRegister.aspx";
 
-	public final static String DOCTOR_URL = HOST_URL + "/app/GetDoctor.aspx";
+	public final static String DOCTOR_URL = APP_URL + "/app/GetDoctor.aspx";
 
 	public final static String LOGIN_URL = APP_URL + "/login.aspx";
 

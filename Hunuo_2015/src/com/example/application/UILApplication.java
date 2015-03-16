@@ -21,7 +21,7 @@ import com.nostra13.universalimageloader.core.display.FadeInBitmapDisplayer;
  */
 public class UILApplication extends Application {
 
-	DisplayImageOptions options;
+	public static DisplayImageOptions options;
 
 	@TargetApi(Build.VERSION_CODES.GINGERBREAD)
 	@Override
@@ -35,7 +35,7 @@ public class UILApplication extends Application {
 
 		SDKInitializer.initialize(getApplicationContext());
 
-		options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisc(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).displayer(new FadeInBitmapDisplayer(500))
+		options = new DisplayImageOptions.Builder().cacheInMemory(true).cacheOnDisk(true).considerExifParams(true).bitmapConfig(Bitmap.Config.RGB_565).displayer(new FadeInBitmapDisplayer(500))
 				.imageScaleType(ImageScaleType.EXACTLY).build();
 	}
 
