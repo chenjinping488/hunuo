@@ -11,7 +11,7 @@ public class Constants {
 	// public static String APP_URL = "http://hunuoapp.gz1.hostadm.net/";
 	public static String APP_URL = "http://192.168.0.132:8002/";
 
-	public final static String BANNER_URL = HOST_URL + "/app/GetIndex.aspx";
+	public final static String BANNER_URL = HOST_URL + "index.aspx";
 
 	public final static String Top_URL = HOST_URL + "/app/GetTopmenu.aspx";
 
@@ -24,8 +24,6 @@ public class Constants {
 	public final static String LOGIN_URL = APP_URL + "/login.aspx";
 
 	public final static String DOWNLOAD_URL = "http://www.17cycle.cn/app/bike.apk";
-
-	/******************* ȫ�־�̬���� --�������� *********************/
 
 	public static List<Left> left_list = null;
 

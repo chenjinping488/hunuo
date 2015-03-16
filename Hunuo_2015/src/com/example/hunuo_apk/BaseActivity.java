@@ -13,6 +13,7 @@ import android.widget.Toast;
 import com.example.application.ActivityManager;
 import com.example.http.HttpResponseImp;
 import com.example.utils.NetWorkHelper;
+import com.example.widget.LoadingDialog;
 
 public class BaseActivity extends FinalActivity implements HttpResponseImp {
 	private static final String TAG = "BaseActivity";

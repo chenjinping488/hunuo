@@ -6,13 +6,13 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
+import net.tsz.afinal.annotation.view.ViewInject;
 import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.View;
-import android.view.View.OnClickListener;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.ImageView;
@@ -21,19 +21,51 @@ import android.widget.TextView;
 
 import com.example.adapter.BannerAdapter;
 import com.example.entity.Banner;
+import com.example.http.HttpRequest;
+import com.example.utils.ParserUtils;
 import com.example.widget.PullToRefreshView;
 import com.example.widget.PullToRefreshView.OnFooterRefreshListener;
 import com.example.widget.PullToRefreshView.OnHeaderRefreshListener;
 
 public class HomeActivity extends BaseActivity implements OnFooterRefreshListener, OnHeaderRefreshListener {
+
 	ScheduledExecutorService scheduledExecutorService;
+
+	@ViewInject(id = R.id.top_back, click = "clickEvent")
 	ImageButton top_back;
+
+	@ViewInject(id = R.id.top_left, click = "clickEvent")
 	ImageView top_left;
+
+	@ViewInject(id = R.id.top_text)
 	TextView top_text;
+
+	@ViewInject(id = R.id.top_right)
 	ImageView top_right;
+
+	@ViewInject(id = R.id.viewpager)
 	ViewPager viewpager;
+
+	@ViewInject(id = R.id.viewgroup)
 	ViewGroup viewgroup;
-	LinearLayout home_website, home_phone, home_weixin, home_case, home_product, home_news;
+
+	@ViewInject(id = R.id.home_website, click = "clickEvent")
+	View home_website;
+
+	@ViewInject(id = R.id.home_phone, click = "clickEvent")
+	View home_phone;
+
+	@ViewInject(id = R.id.home_case, click = "clickEvent")
+	View home_case;
+
+	@ViewInject(id = R.id.home_weixin, click = "clickEvent")
+	View home_weixin;
+
+	@ViewInject(id = R.id.home_product, click = "clickEvent")
+	View home_product;
+
+	@ViewInject(id = R.id.home_news, click = "clickEvent")
+	View home_news;
 
 	BannerAdapter adapter;
 	int currentItem = 0;
@@ -47,7 +79,11 @@ public class HomeActivity extends BaseActivity implements OnFooterRefreshListene
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.home);
 
-		initView();
+		top_text.setText("");
+		top_back.setVisibility(View.GONE);
+		top_right.setVisibility(View.VISIBLE);
+
+		HttpRequest.getInstance(this, 0).getIndex();
 	}
 
 	@Override
@@ -56,6 +92,20 @@ public class HomeActivity extends BaseActivity implements OnFooterRefreshListene
 			scheduledExecutorService.shutdown();
 		}
 		super.onStop();
+	}
+
+	@Override
+	public void onHttpSuccess(Object t, int flag) {
+		// TODO Auto-generated method stub
+		super.onHttpSuccess(t, flag);
+		System.out.println(t.toString());
+		try {
+			List<Banner> banners = ParserUtils.parserBanner(t.toString());
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
 	}
 
 	private void initBanner() {
@@ -85,6 +135,7 @@ public class HomeActivity extends BaseActivity implements OnFooterRefreshListene
 		viewpager.setAdapter(adapter);
 		scheduledExecutorService = Executors.newSingleThreadScheduledExecutor();
 		scheduledExecutorService.scheduleAtFixedRate(new ScrollTask(), 1, 8, TimeUnit.SECONDS);
+
 	}
 
 	private class ScrollTask implements Runnable {
@@ -126,60 +177,16 @@ public class HomeActivity extends BaseActivity implements OnFooterRefreshListene
 		}
 	}
 
-	private void initView() {
-		top_back = (ImageButton) this.findViewById(R.id.top_back);
-		top_left = (ImageView) this.findViewById(R.id.top_left);
-		top_text = (TextView) this.findViewById(R.id.top_text);
-		top_right = (ImageView) this.findViewById(R.id.top_right);
-		viewpager = (ViewPager) this.findViewById(R.id.viewpager);
-		viewgroup = (ViewGroup) this.findViewById(R.id.viewgroup);
-		home_website = (LinearLayout) this.findViewById(R.id.home_website);
-		home_phone = (LinearLayout) this.findViewById(R.id.home_phone);
-		home_weixin = (LinearLayout) this.findViewById(R.id.home_weixin);
-		home_case = (LinearLayout) this.findViewById(R.id.home_case);
-		home_product = (LinearLayout) this.findViewById(R.id.home_product);
-		home_news = (LinearLayout) this.findViewById(R.id.home_news);
+	public void clickEvent(View v) {
+		switch (v.getId()) {
+		case R.id.top_back:
 
-		top_text.setText("��ŵ�Ƽ�");
+			break;
 
-		top_left.setVisibility(View.VISIBLE);
-		top_right.setVisibility(View.VISIBLE);
-		top_left.setOnClickListener(new ClickEvent());
-		top_right.setOnClickListener(new ClickEvent());
-	}
-
-	private void initDate() {
-		/*
-		 * AsyncHttpClient client = new AsyncHttpClient();
-		 * client.setTimeout(5000); client.get(Constants.BANNER_URL, new
-		 * AsyncHttpResponseHandler()// params, {
-		 * 
-		 * @Override public void onSuccess(int statusCode, Header[] headers,
-		 * byte[] responseBody) {
-		 * 
-		 * }
-		 * 
-		 * @Override public void onFinish() {
-		 * 
-		 * } });
-		 */
-	}
-
-	public class ClickEvent implements OnClickListener {
-		@Override
-		public void onClick(View v) {
-			switch (v.getId()) {
-			case R.id.top_left:
-				MainActivity main = (MainActivity) getParent();
-				main.toggle();
-				break;
-			case R.id.top_right:
-				// ;
-				break;
-			default:
-				break;
-			}
+		default:
+			break;
 		}
+
 	}
 
 	@Override

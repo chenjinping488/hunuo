@@ -39,6 +39,10 @@ public class HttpRequest extends AjaxCallBack<Object> implements HttpResponseImp
 		finalHttp.post(Constants.LOGIN_URL, params, this);
 	}
 
+	public void getIndex() {
+		finalHttp.get(Constants.BANNER_URL, this);
+	}
+
 	/***************************************************************************/
 
 	@Override
